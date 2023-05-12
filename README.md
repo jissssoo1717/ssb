@@ -1,2 +1,2 @@
 # ssb
-Spring boot board(feat Jump to Springboot)
+Spring boot board(feat 'Jump to Springboot')
