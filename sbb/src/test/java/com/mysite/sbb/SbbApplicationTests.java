@@ -7,6 +7,10 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.mysite.sbb.question.Question;
+import com.mysite.sbb.question.QuestionRepository;
 
 @SpringBootTest
 class SbbApplicationTests {
@@ -15,13 +19,12 @@ class SbbApplicationTests {
 	@Autowired
 	private QuestionRepository questionRepository;
 	
+	@Transactional
 	@Test
 	void testJpa() {
-		List<Question> all = this.questionRepository.findAll();
-		assertEquals(2, all.size());
-		
-		Question q = all.get(0);
-		assertEquals("엥", q.getSubject());
+		List<Question> qList = this.questionRepository.findBySubjectLike("sbb%");
+        Question q = qList.get(0);
+        assertEquals("sbb가 무엇인가요?", q.getSubject());
 	}
 
 }
