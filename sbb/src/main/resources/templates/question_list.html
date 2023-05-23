@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -13,10 +13,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr th:each="question : ${questionList}">
-            <td th:text="${question.subject}"></td>
-            <td th:text="${question.createDate}"></td>
-        </tr>
+        <td>
+        	<a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+        </td>
+        <td th:text="${question.createDate}"></td>
+        
     </tbody>
 </table>
 </body>
