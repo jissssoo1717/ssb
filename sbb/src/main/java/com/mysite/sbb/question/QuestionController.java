@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class QuestionController {
 	
+	private final QuestionRepository questionRepository;
 	private final QuestionService questionService;
 
 	@GetMapping("/list")
@@ -34,4 +35,10 @@ public class QuestionController {
 		
 		return "question_detail";
 	}
+	
+	@GetMapping("/create")
+	public String questionCreate() {
+		return "question_form";
+	}
+	
 }
